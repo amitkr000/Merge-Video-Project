@@ -1,0 +1,16 @@
+# Virtual environments
+venv11/
+.venv11/
+
+# Common Python temporary/generated files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Specific to your editor/IDE (examples)
+.vscode/
+.idea/
+
+test/
+
+LectureCombine.py
