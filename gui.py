@@ -184,8 +184,13 @@ class VideoCombinerApp(QWidget):
 
 
     def combineVideos(self):
-        if not self.selected_folder_path:
+        if not self.selected_folder_path and not self.out_selected_folder_path:
             return
+        
+        self.out_file_name = self.input_out_file_name.text()
+        if not self.out_file_name:
+            self.out_file_name = self.DefaultOutputName
+            
         
         print("Combined_Called")
         print("Current FOlder index: ", self.CurrentFolderIndex)
@@ -198,11 +203,11 @@ class VideoCombinerApp(QWidget):
         video_files = [os.path.join(self.selected_folder_path,v) for v in self.video_files]
 
         output_file = self.out_selected_folder_path+"/"
-        self.out_file_name = self.input_out_file_name.text()
+        # self.out_file_name = self.input_out_file_name.text()
         # print(output_file)
 
         # thread = QThread()
-        self.videoProcessor = VideoProcessor(video_files, output_file, self.DefaultOutputName, self.btns)
+        self.videoProcessor = VideoProcessor(video_files, output_file, self.out_file_name, self.btns)
         self.videoProcessor.moveToThread(self.video_Processing_thread)
         
         self.video_Processing_thread.started.connect(self.videoProcessor.run)
