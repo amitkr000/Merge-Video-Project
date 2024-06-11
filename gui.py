@@ -192,7 +192,7 @@ class VideoCombinerApp(QWidget):
             self.out_file_name = self.DefaultOutputName
             
         
-        print("Combined_Called")
+        # print("Combined_Called")
         print("Current FOlder index: ", self.CurrentFolderIndex)
         
         # for btn in self.btns:
@@ -201,6 +201,7 @@ class VideoCombinerApp(QWidget):
 
 
         video_files = [os.path.join(self.selected_folder_path,v) for v in self.video_files]
+        print("Total Videos: ", len(video_files))
 
         output_file = self.out_selected_folder_path+"/"
         # self.out_file_name = self.input_out_file_name.text()

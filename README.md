@@ -26,5 +26,9 @@ pip install -r requirement.txt
 
 # Demo
 
+```
+python gui.py
+```
+
 ![Demo Gif](docs/demo.gif)
 
